@@ -6,11 +6,13 @@
               <input type="text" placeholder="电影、演员、影院、电视剧" v-model="keyword">
           </div>
       </div>
-      <div class="navbar">
-        <router-link :to="bar.url" v-for="(bar, index) in barlist" :key="index">
-            {{ bar.title }}
-        </router-link>
-      </div>
+       <div class="navbar">
+           <template v-for="bar in barlist">
+                <router-link :to="bar.url">
+                    {{ bar.title }}
+                </router-link>
+           </template>
+      </div> 
   </div>
 </template>
 
@@ -24,14 +26,14 @@
                         title: "正在热映",
                         url: '/'
                     },
-                    // {
-                    //     title: "即将上映",
-                    //     url: '/coming'
-                    // },
-                    // {
-                    //     title: "热播列表",
-                    //     url: '/top'
-                    // }
+                    {
+                        title: "即将上映",
+                        url: '/coming'
+                    },
+                    {
+                        title: "热播列表",
+                        url: '/top'
+                    }
                 ]
             }
         }

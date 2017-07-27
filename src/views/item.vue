@@ -13,7 +13,7 @@
             <span>影院上映</span>
             <em>正在上映</em>
         </section>
-        <film-card></film-card>
+        <card></card>
     </div>
 </template>
 
@@ -21,7 +21,7 @@
     import FilmCard from '../components/FilmCard.vue'
     export default {
         components: {
-            FilmCard
+            card: FilmCard
         },
         data() {
             return {
