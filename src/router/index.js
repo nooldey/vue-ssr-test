@@ -13,7 +13,15 @@ export function createRouter () {
     routes: [
       {
         path: '/on',
-        components: createView('moving')
+        component: createView('moving')
+      },
+      {
+        path: '/coming',
+        component: createView('coming')
+      },
+      {
+        path: '/top',
+        component: createView('top')
       },
       {
         path: '/',

@@ -51,7 +51,7 @@ function render (req,res) {
         }
     }
     const context = {
-        title: "Nooldey Posts",
+        title: "Nooldey Movies",
         url: req.url
     }
 
