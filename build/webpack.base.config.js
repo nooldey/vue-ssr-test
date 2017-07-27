@@ -19,6 +19,7 @@ module.exports =  {
         }
     },
     module: {
+        noParse: /es6-promise\.js$/,
         rules: [
             {
                 test: /\.vue$/,
@@ -48,6 +49,11 @@ module.exports =  {
                 }
             }
         ]
+    },
+    // performance这部分不理解
+    performance: {
+        maxEntrypointSize: 300000,
+        hints: isProd ? 'warning' : false
     },
     plugins: isProd
         ? [

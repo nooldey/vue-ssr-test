@@ -1,22 +1,35 @@
 <template>
   <div id="app">
-      <header>
-          <a href="#">github</a>
-          <!-- <nav>
-              <router-link to="/" exact>
-                撒啊
-              </router-link>
-              <router-link to=""></router-link>
-              <router-link to=""></router-link>
-              <router-link to=""></router-link>
-          </nav> -->
-      </header>
+      <z-header></z-header>
+      <transition name="fade" mode="out-in">
+          <router-view class="view"></router-view>
+      </transition>
   </div>
 </template>
 
-<style>
+<script>
+    import Zheader from './components/header.vue'
+    export default {
+        components: {
+            Zheader
+        }
+    }
+</script>
+
+
+<style lang="scss">
     body {
         color: #333;
+    }
+    .view {
+        max-width: 800px;
+        margin: auto;
+    }
+    .fade-enter-active, .fade-leave-active {
+        transition: all .2s ease;
+    }
+    .fade-enter, .fade-leave-active {
+        opacity: 0;
     }
 </style>
 
