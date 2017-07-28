@@ -6,12 +6,12 @@ import Item from './item.vue'
  */
 export default function createView (type) {
     return {
-        name: type,
+        name: `${type}-view`,
         asyncData({store}) {
-            return store.dispatch('fetch_list_data',{type})
+            return store.dispatch(`fetch_${type}`,{type})
         },
         render (h) {
-            return h(Item)
+            return h(Item,{props:{type}})
         }
     }
 }

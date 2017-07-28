@@ -9,15 +9,19 @@
             <span>影院上映</span>
             <em>正在上映</em>
         </section>
+        <p>{{ type }}</p>
         <card :films="filmList"></card>
     </div>
 </template>
 
 <script>
-import FilmCard from '../components/FilmCard.vue'
+import card from '../components/FilmCard.vue'
 export default {
+    props: {
+        type: String
+    },
     components: {
-        card: FilmCard
+        card
     },
     data() {
         return {

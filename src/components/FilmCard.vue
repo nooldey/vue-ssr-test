@@ -16,6 +16,7 @@
 
 <script>
     export default {
+        name: "z-card",
         props: {
             films: Array
         }
