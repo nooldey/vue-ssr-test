@@ -8,7 +8,7 @@ export default function createView (type) {
     return {
         name: `${type}-view`,
         asyncData({store}) {
-            return store.dispatch(`fetch_${type}`,{type})
+            return store.dispatch(`fetch_${type}`)
         },
         render (h) {
             return h(Item,{props:{type}})

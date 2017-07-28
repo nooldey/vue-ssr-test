@@ -6,6 +6,8 @@ Vue.use(Router)
 // route-level code splitting
 const createView = id => () => import('../views/createView').then(m => m.default(id))
 
+const MovieDetail = () => import('../views/movie.vue')
+
 export function createRouter () {
   return new Router({
     mode: 'history',
@@ -22,6 +24,10 @@ export function createRouter () {
       {
         path: '/top',
         component: createView('top')
+      },
+      {
+        path: '/movie/:id(\\d+)',
+        component: MovieDetail
       },
       {
         path: '/',

@@ -21,9 +21,17 @@
     body {
         color: #333;
     }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
     .view {
         max-width: 800px;
         margin: auto;
+    }
+    ul li,ol li {
+        list-style: none;
     }
     .fade-enter-active, .fade-leave-active {
         transition: all .2s ease;

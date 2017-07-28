@@ -3,7 +3,13 @@
         <h2>电影票 - {{ city }}</h2>
         <section class="location">
             [切换城市]：
-            <span v-for="(c,idx) in cities" :key="idx" @click="getCity(c)">{{ c }}</span>
+            <span
+                v-for="(c,idx) in cities"
+                :key="idx"
+                :class="{'current':c==city}"
+                @click="getCity(c)">
+                {{ c }}
+            </span>
         </section>
         <section class="hd">
             <span>影院上映</span>
@@ -25,21 +31,33 @@ export default {
     },
     data() {
         return {
-            cities: ["北京", "上海", "深圳", "广州", "杭州"],
-            city: this.$store.state.city
+            cities: ["北京", "上海", "深圳", "广州", "杭州"]
         }
     },
     computed: {
         filmList() {
             return this.$store.state.filmList
+        },
+        city() {
+            return this.$store.state.city
         }
     },
     methods: {
         getCity(c) {
             console.log('current city:', c)
-            this.$store.dispatch("set_list_city",{c})
+            this.$store.dispatch("set_list_city",c)
         }
     }
 }
 </script>
+
+<style lang="scss" scoped>
+    .location {
+        span {
+            color: #69c;
+            cursor: pointer;
+        }
+    }
+</style>
+
 

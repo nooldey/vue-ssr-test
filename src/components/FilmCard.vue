@@ -1,10 +1,10 @@
 <template>
   <div class="z-film">
       <section v-for="(f,idx) in films" :key="idx">
-          <a href="javascript:;">
+          <a :href="`/movie/${f.id}`">
               <img :src="f.images.large" alt="douban-movies">
           </a>
-          <a href="javascript:;">{{ f.title }}</a>
+          <a :href="`/movie/${f.id}`">{{ f.title }}</a>
           <span>豆瓣评分：{{ f.rating.average }}</span>
           <p class="45">
               <!-- 评分星星图 -->
