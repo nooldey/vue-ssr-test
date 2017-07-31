@@ -5,8 +5,8 @@ import Vuex from 'vuex'
 // import getters from './getters'
 
 import axios from 'axios'
-const dbapi = "http://api.douban.com/v2/movie"
-// const dbapi = "http://192.168.31.33/api"
+// const dbapi = "http://api.douban.com/v2/movie"
+const dbapi = "http://192.168.31.33/api"
 
 Vue.use(Vuex)
 
@@ -16,19 +16,22 @@ export function createStore () {
       city: "深圳",
       curType: "",
       start: 0,
-      filmList: [],
+      // filmList: [],
+      list: {
+        moving: [],
+        coming: [],
+        top: []
+      },
       movieId: null,
       movie: {}
     },
     mutations: {
-      "set_type" (state,type) {
-        state.curType = type
-      },
       "set_city" (state,city) {
         state.city = city
       },
-      "push_list" (state,{list}) {
-        state.filmList = list
+      "push_list" (state,{list,type}) {
+        state.list[type] = list
+        state.curType = type
       },
       "push_detail" (state,{detail,id}) {
         state.movie = detail
@@ -42,10 +45,8 @@ export function createStore () {
             city: c || state.city
           }
         }).then(res => {
-console.log(res.data.title)
-          commit("set_type","moving")
           c && commit("set_city",c)
-          commit("push_list",{list:res.data.subjects})
+          commit("push_list",{list:res.data.subjects,type:"moving"})
         }).catch(()=>{
           console.log("请求失败")
         })
@@ -57,8 +58,7 @@ console.log(res.data.title)
             count: 20
           }
         }).then(res => {
-          commit("set_type","coming")
-          commit("push_list",{list:res.data.subjects})
+          commit("push_list",{list:res.data.subjects,type:"coming"})
         }).catch(()=>{
           console.log("请求失败")
         })
@@ -70,8 +70,7 @@ console.log(res.data.title)
             count: 8
           }
         }).then(res => {
-          commit("set_type","top")
-          commit("push_list",{list:res.data.subjects})
+          commit("push_list",{list:res.data.subjects,type:"top"})
         }).catch(()=>{
           console.log("请求失败")
         })

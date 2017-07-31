@@ -36,7 +36,7 @@ export default {
     },
     computed: {
         filmList() {
-            return this.$store.state.filmList
+            return this.$store.state.list[this.type]
         },
         city() {
             return this.$store.state.city
