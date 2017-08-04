@@ -5,8 +5,8 @@ import Vuex from 'vuex'
 // import getters from './getters'
 
 import axios from 'axios'
-// const dbapi = "http://api.douban.com/v2/movie"
-const dbapi = "http://192.168.31.33/api"
+const dbapi = "http://api.douban.com/v2/movie"
+// const dbapi = "http://192.168.31.33/api"
 
 Vue.use(Vuex)
 
